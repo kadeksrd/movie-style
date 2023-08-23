@@ -1,0 +1,82 @@
+.row-poster--left {
+  animation: slideLeft 30s linear infinite;
+  width: 400px; /* Animasi slideRight, 3 detik, berulang tak terhingga */
+}
+
+.row-poster--right {
+  animation: slideRight 30s linear infinite; /* Animasi slideRight, 3 detik, berulang tak terhingga */
+}
+
+@keyframes slideLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(
+      -1000px
+    ); /* Gerakkan card ke samping saat animasi selesai */
+  }
+}
+@keyframes slideRight {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(
+      1000px
+    ); /* Gerakkan card ke samping saat animasi selesai */
+  }
+}
+
+.row {
+  overflow-y: hidden;
+}
+
+.row-poster:hover {
+  opacity: 1;
+}
+
+.card {
+  background-color: #f0f0f0;
+  transition: transform 0.3s ease-in-out;
+  cursor: grab;
+
+  /* Anda bisa menambahkan gaya lain sesuai kebutuhan */
+}
+
+.card.dragging {
+  cursor: grabbing;
+}
+
+/* hover */
+
+.row-posters {
+  display: flex;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+.row-poster {
+  /* Gaya gambar di sini */
+  
+}
+
+.hover-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  opacity: 0; /* Mulai dengan opacity 0 */
+  transition: opacity 0.3s ease-in-out;
+  text-align: center;
+  width: 100%;
+  max-width: 300px; /* Sesuaikan lebar sesuai kebutuhan */
+}
+
+.row-poster:hover + .hover-content {
+  opacity: 1; /* Munculkan konten saat gambar dihover */
+}

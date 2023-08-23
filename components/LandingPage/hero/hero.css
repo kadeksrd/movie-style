@@ -1,0 +1,9 @@
+.hero {
+  background-size: cover;
+  background-position: center center;
+  height: 550px;
+}
+
+.hero-overlay {
+  height: 550px;
+}
