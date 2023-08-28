@@ -1,9 +1,10 @@
 .hero {
   background-size: cover;
   background-position: center center;
-  height: 550px;
+  height: 680px;
+  object-fit: contain;
 }
 
 .hero-overlay {
-  height: 550px;
+  height: 700px;
 }

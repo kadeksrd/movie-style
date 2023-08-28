@@ -8,7 +8,7 @@ import Row from "@components/LandingPage/row/row";
 export default class landingPage extends Component {
   render() {
     return (
-      <div>
+      <div className='bg-black'>
         <Hero />
         <Row
           title='POPULAR'
@@ -26,8 +26,20 @@ export default class landingPage extends Component {
           fetchUrl={request.popularSeries}
         />
         <Row
-          title='Romance'
-          fetchUrl={request.romance}
+          title='Action'
+          fetchUrl={request.action}
+        />
+        <Row
+          title='Documentaries'
+          fetchUrl={request.documentaries}
+        />
+        <Row
+          title='Comedy'
+          fetchUrl={request.comedy}
+        />
+        <Row
+          title='Horor'
+          fetchUrl={request.horror}
         />
       </div>
     );
