@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
-import "./header.css";
 
 export default function Navbar() {
   const [show, handleShow] = useState(false);
@@ -14,14 +13,14 @@ export default function Navbar() {
     }
   };
 
-  useEffect(() => {
-    window.addEventListener("scroll", TransitionNavbar);
-    return () => window.removeEventListener("scroll", TransitionNavbar);
-  }, []);
-
   // Mendapatkan URL saat ini
   const currentPath =
     typeof window !== "undefined" ? window.location.pathname : "";
+
+  useEffect(() => {
+    window.addEventListener("scroll", TransitionNavbar);
+    return () => window.removeEventListener("scroll", TransitionNavbar);
+  }, [currentPath == "/"]);
 
   return (
     <>
@@ -59,7 +58,7 @@ export default function Navbar() {
           </div>
         </nav>
       ) : (
-        <nav className={`nav fixed w-full py-4 mx-auto bg-black`}>
+        <nav className={`nav fixed w-full py-4 mx-auto bg-black z-20`}>
           <div className={`px-5 scale-x-5 grid grid-cols-2`}>
             <div className='logo'>
               <Link

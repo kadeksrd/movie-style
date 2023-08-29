@@ -1,14 +1,13 @@
 import React, { useEffect, useState, useRef } from "react";
 import axios from "@api/axios";
 import "./row.css";
-import Image from "next/image";
-import Fire from "@app/assets/img/fire.svg";
 import Link from "next/link";
 
 function Row({ title, fetchUrl, isLargeRow, slide, trending }) {
   const [movies, setMovies] = useState([]);
   const baseUrl = "https://image.tmdb.org/t/p/w200";
   const [hoveredMovie, setHoveredMovie] = useState(null);
+  const cardRef = useRef(null);
 
   useEffect(() => {
     async function fetchData() {
@@ -19,13 +18,6 @@ function Row({ title, fetchUrl, isLargeRow, slide, trending }) {
 
     fetchData();
   }, [fetchUrl]);
-
-  const cardRef = useRef(null);
-  const [scrollX, setScrollX] = useState(0);
-
-  const handleScroll = (e) => {
-    cardRef.current.scrollLeft += e.deltaY;
-  };
 
   const handlePagination = (direction) => {
     const scrollAmount = direction === "left" ? -200 : 200;
@@ -47,20 +39,6 @@ function Row({ title, fetchUrl, isLargeRow, slide, trending }) {
 
     scrollStep();
   };
-
-  useEffect(() => {
-    let interval;
-    if (slide) {
-      interval = setInterval(() => {
-        setScrollX((prevScrollX) => prevScrollX + 1);
-        cardRef.current.scrollLeft = scrollX;
-      }, 100);
-    }
-
-    return () => {
-      clearInterval(interval);
-    };
-  }, [slide, scrollX]);
 
   const handleHover = (movie) => {
     setHoveredMovie(movie);
@@ -161,11 +139,6 @@ function Row({ title, fetchUrl, isLargeRow, slide, trending }) {
                       onClick={() => handleViewMoreClick(movie.id)}>
                       View More
                     </Link>
-                    {/* <button
-                      className='view-more-button bg-red-600 px-3 text-sm py-1 rounded-lg'
-                      onClick={() => handleViewMoreClick(movie)}>
-                      View More
-                    </button> */}
                   </div>
                 )}
               </div>

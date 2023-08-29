@@ -41,7 +41,7 @@ export default function Hero() {
               movie.media_type === "movie" || !movie.media_type ? "movie" : "tv"
             }/${movie.id}`}
             className='mt-6 bg-red-600 text-white px-4 py-2 mt-4 rounded-md hover:bg-red-700'>
-            Tonton Sekarang
+            Play Now
           </Link>
         </div>
       </div>
