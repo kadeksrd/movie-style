@@ -5,3 +5,15 @@
 body {
   background-color: black;
 }
+
+body::-webkit-scrollbar {
+  width: 12px;
+  /* Lebar bilah gulir */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgba(97, 97, 97, 0.541);
+  border-radius: 10px;
+  padding: 5px;
+  height: 10px;
+}

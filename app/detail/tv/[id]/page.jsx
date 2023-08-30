@@ -2,7 +2,7 @@
 
 import request from "@api/api";
 import axios from "@api/axios";
-import Row from "@components/LandingPage/row/row";
+import Row from "@components/row/row";
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 
