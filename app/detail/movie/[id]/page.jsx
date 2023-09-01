@@ -5,7 +5,7 @@ import axios from "@api/axios";
 import Overview from "@components/Overview/overview";
 import Cast from "@components/cast/cast";
 import Detail from "@components/details/detail";
-import Row from "@components/row/Row";
+import Row from "@components/row";
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 

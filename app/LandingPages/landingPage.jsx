@@ -2,8 +2,8 @@
 
 import React, { Component } from "react";
 import request from "@api/api";
-import Hero from "@components/hero/hero";
-import Row from "@components/row/Row";
+import Hero from "@components/hero";
+import Row from "@components/row";
 
 export default class landingPage extends Component {
   render() {

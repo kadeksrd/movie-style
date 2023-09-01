@@ -1,7 +1,7 @@
 import request from "@api/api";
 import Overview from "@components/Overview/overview";
 import Cast from "@components/cast/cast";
-import Row from "@components/row/Row";
+import Row from "@components/row";
 import React from "react";
 
 function Detail({ movie, video, casts }) {
