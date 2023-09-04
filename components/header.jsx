@@ -60,7 +60,7 @@ export default function Navbar() {
           show ? "bg-black px-7" : "backdrop-blur-lg px-14"
         } text-white py-3`}
         style={{ overflowY: "auto", maxHeight: 1000 }}>
-        <ul className={`${show ? "" : ""}divide-y`}>
+        <ul className=''>
           {searchResults.map((result) => (
             <Link
               key={result.id}
@@ -70,8 +70,8 @@ export default function Navbar() {
                   : "tv"
               }/${result.id}`}
               target='_blank'>
-              <li className='hover:scale-100'>
-                <div className='flex'>
+              <li className='hover:bg-gray-500/50 divide-y'>
+                <div className='flex px-4'>
                   <img
                     src={`${baseUrl}${result.poster_path}`}
                     alt=''
@@ -100,7 +100,7 @@ export default function Navbar() {
         className={`w-full bg-transparent  px-7
          text-white py-3`}
         style={{ overflowY: "auto", maxHeight: 1000 }}>
-        <ul className={`divide-y`}>
+        <ul>
           {searchResults.map((result) => (
             <Link
               key={result.id}
@@ -110,7 +110,7 @@ export default function Navbar() {
                   : "tv"
               }/${result.id}`}
               target='_blank'>
-              <li className='hover:scale-100'>
+              <li className=''>
                 <div className='flex'>
                   <img
                     src={`${baseUrl}${result.poster_path}`}
@@ -141,7 +141,7 @@ export default function Navbar() {
             show ? "bg-black" : "bg-transparent"
           }`}>
           <div
-            className={`${show ? `px-5 scale-x-5` : `px-14`} grid grid-cols-2`}>
+            className={`${show ? `px-14 lg:px-5 md:px-5 scale-x-5` : `px-14`} grid grid-cols-2`}>
             <div className='logo'>
               <Link
                 className='text-3xl font-bold text-white'
@@ -157,7 +157,7 @@ export default function Navbar() {
                 ["Series", "#series"],
               ].map(([title, url]) => (
                 <Link
-                  className={`hover:text-slate-300 text-white ${
+                  className={`hover:text-slate-300 text-white hidden md:block lg:block ${
                     currentPath === url ? "text-slate-300" : ""
                   }`}
                   key={title}
@@ -212,7 +212,7 @@ export default function Navbar() {
                 ["Series", "/series"],
               ].map(([title, url]) => (
                 <Link
-                  className={`hover:text-slate-300 text-white ${
+                  className={`hover:text-slate-300 text-white hidden md:block lg:block ${
                     currentPath === url ? "text-slate-300" : ""
                   }`}
                   key={title}

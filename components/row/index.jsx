@@ -81,7 +81,7 @@ function Row({ title, fetchUrl, isLargeRow, slide }) {
         )}
       </div>
       <div
-        className={`flex overflow-hidden`} // Updated class here
+        className={`flex md:overflow-hidden`} // Updated class here
         style={{ overflowY: "hidden" }}
         ref={cardRef}>
         {movies.map(

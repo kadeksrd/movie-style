@@ -28,11 +28,11 @@ function Cast({ casts }) {
   };
 
   return (
-    <div className='cast-section my-20  mb-5 px-3 divide-y'>
+    <div className='cast-section my-20 mb-5 px-2 md:px-3 divide-y'>
       <div className='px-2 py-2 text-2xl '>Cast</div>
       <div className='flex items-center pt-8'>
         <button
-          className='text-gray-500 mx-2 text-4xl rounded-xl'
+          className='text-gray-500 mr-2 text-4xl rounded-xl'
           onClick={() => handlePagination("left")}>
           {"<"}
         </button>
@@ -68,7 +68,7 @@ function Cast({ casts }) {
           ))}
         </div>
         <button
-          className='text-gray-500 mx-2 text-4xl'
+          className='text-gray-500 ml-2 text-4xl'
           onClick={() => handlePagination("right")}>
           {">"}
         </button>

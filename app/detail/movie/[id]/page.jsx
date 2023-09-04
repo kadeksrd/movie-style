@@ -70,7 +70,7 @@ const Details = ({ params }) => {
 
   return (
     <section className='pt-20 bg-black text-white'>
-      <div className='mx-3 mx-5 p-8 bg-gray-800/50 bg-opacity-5 rounded-lg'>
+      <div className='mx-3 md:mx-8 md:p-8 bg-gray-800/50 bg-opacity-5 rounded-lg py-4'>
         <Detail
           movie={movie}
           video={video}

@@ -1,9 +1,9 @@
 import Link from "next/link";
 import React from "react";
 
-function Overview({movie}) {
+function Overview({ movie }) {
   return (
-    <div className='card w-full mx-5 px-5 mt-5 pt-2 pb-5 mb-0 bg-gray-400/25 rounded-xl'>
+    <div className='card w-full md:mx-5 px-5 mt-5 pt-2 pb-5 mb-0 bg-gray-400/25 rounded-xl'>
       <div className='imdb-rate flex justify-between py-4 items-center gap-5'>
         <h3 className='text-2xl'>People Rates</h3>
         <div className='justify-self-end'>
@@ -44,7 +44,7 @@ function Overview({movie}) {
       </div>
       <div className='overview divide-y my-3'>
         <h2 className='text-xl py-2 text-start'>Movie Overview</h2>
-        <p className='text-justify py-2 text-sm'>{movie.overview}</p>
+        <p className='md:text-justify py-2 text-sm'>{movie.overview}</p>
       </div>
       <div className='genre divide-y'>
         <h2 className='text-xl py-2 text-start'>Genre</h2>
@@ -54,6 +54,7 @@ function Overview({movie}) {
       </div>
       <Link
         href={movie.homepage}
+        target='_blank'
         className='view-more-button bg-red-600 text-xl text-center py-2 mt-20 w-full block rounded-lg hover:bg-red-900'>
         Play Now{" "}
       </Link>

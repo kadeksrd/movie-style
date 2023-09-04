@@ -8,11 +8,13 @@ function Detail({ movie, video, casts }) {
   return (
     <>
       {movie ? (
-        <div className='tv-section'>
-          <h1 className='text-4xl text-center mb-8'>{movie.original_name}</h1>
-          <div className='flex'>
+        <div className='tv-section p-2'>
+          <h1 className='py-2 md:py-0 text-2xl md:text-4xl text-center mb-8'>
+            {movie.original_name || movie.title}
+          </h1>
+          <div className='block md:flex lg:flex'>
             {video && (
-              <div className='py-5'>
+              <div className='py-1 md:py-5'>
                 <iframe
                   title={video.name}
                   width='800'
@@ -20,7 +22,17 @@ function Detail({ movie, video, casts }) {
                   src={`https://www.youtube.com/embed/${video.key}`}
                   frameBorder='0'
                   allowFullScreen
-                  className='rounded-lg'></iframe>
+                  className='rounded-lg hidden md:block lg:block'></iframe>
+
+                <iframe
+                  title={video.name}
+                  src={`https://www.youtube.com/embed/${video.key}`}
+                  frameBorder='0'
+                  width={`100%`}
+                  height={300}
+                  allowFullScreen
+                  style={{ minWidth: "300", minHeight: "300" }}
+                  className='rounded-lg block md:hidden lg:hidden'></iframe>
               </div>
             )}
             <Overview movie={movie} />
