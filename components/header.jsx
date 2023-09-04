@@ -71,7 +71,7 @@ export default function Navbar() {
               }/${result.id}`}
               target='_blank'>
               <li className='hover:bg-gray-500/50 divide-y'>
-                <div className='flex px-4'>
+                <div className='hidden md:block lg:block md:flex lg:flex px-4'>
                   <img
                     src={`${baseUrl}${result.poster_path}`}
                     alt=''
@@ -84,6 +84,20 @@ export default function Navbar() {
                       {(result && result.name) || result.title}
                     </h4>
                     <p className=''>{result.overview}</p>
+                  </div>
+                </div>
+                <div className='block md:hidden lg:hidden px-2 flex'>
+                  <img
+                    src={`${baseUrl}${result.poster_path}`}
+                    alt=''
+                    width={70}
+                    height={120}
+                    className='rounded-xl py-2'
+                  />
+                  <div className='grid px-3'>
+                    <h4 className='text-base flex items-center'>
+                      {(result && result.name) || result.title}
+                    </h4>
                   </div>
                 </div>
               </li>
@@ -110,8 +124,8 @@ export default function Navbar() {
                   : "tv"
               }/${result.id}`}
               target='_blank'>
-              <li className=''>
-                <div className='flex'>
+              <li className='hover:bg-gray-500/50 divide-y'>
+                <div className='hidden md:block px-4 flex'>
                   <img
                     src={`${baseUrl}${result.poster_path}`}
                     alt=''
@@ -124,6 +138,20 @@ export default function Navbar() {
                       {(result && result.name) || result.title}
                     </h4>
                     <p className=''>{result.overview}</p>
+                  </div>
+                </div>
+                <div className='block md:hidden lg:hidden px-2 flex'>
+                  <img
+                    src={`${baseUrl}${result.poster_path}`}
+                    alt=''
+                    width={70}
+                    height={120}
+                    className='rounded-xl py-2'
+                  />
+                  <div className='grid px-3'>
+                    <h4 className='text-base flex items-center'>
+                      {(result && result.name) || result.title}
+                    </h4>
                   </div>
                 </div>
               </li>
@@ -141,7 +169,9 @@ export default function Navbar() {
             show ? "bg-black" : "bg-transparent"
           }`}>
           <div
-            className={`${show ? `px-14 lg:px-5 md:px-5 scale-x-5` : `px-14`} grid grid-cols-2`}>
+            className={`${
+              show ? `px-14 lg:px-5 md:px-5 scale-x-5` : `px-14`
+            } grid grid-cols-2`}>
             <div className='logo'>
               <Link
                 className='text-3xl font-bold text-white'

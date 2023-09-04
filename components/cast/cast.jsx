@@ -37,7 +37,7 @@ function Cast({ casts }) {
           {"<"}
         </button>
         <div
-          className='cast-list flex overflow-x-scroll gap-5'
+          className='cast-list flex overflow-x-scroll md:overflow-hidden gap-5'
           ref={cardRef}
           style={{ overflow: "hidden" }}>
           {casts.map((actor) => (
