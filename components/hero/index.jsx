@@ -31,8 +31,8 @@ export default function Hero() {
       }}>
       <div className='hero-overlay relative bg-black opacity-50'></div>{" "}
       <div className='absolute inset-0 flex items-center'>
-        <div className='px-16 mx-auto text-white text-left'>
-          <h1 className='py-2  text-xl md:text-4xl lg:text-4xl font-bold mb-4'>
+        <div className='px-5 md:px-16 lg:px-16 mx-auto text-white text-left'>
+          <h1 className='py-2 text-xl md:text-4xl lg:text-4xl font-bold mb-4'>
             {movie?.title || movie?.name || movie?.original_name}
           </h1>
           <p className='py-3 lg:w-1/2 text-sm md:text-lg lg:text-lg mb-4'>{movie.overview}</p>

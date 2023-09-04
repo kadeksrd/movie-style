@@ -57,7 +57,7 @@ export default function Navbar() {
     return (
       <div
         className={`w-full ${
-          show ? "bg-black px-7" : "backdrop-blur-lg px-14"
+          show ? "bg-black px-5" : "backdrop-blur-lg px-5 md:px-14"
         } text-white py-3`}
         style={{ overflowY: "auto", maxHeight: 1000 }}>
         <ul className=''>
@@ -170,7 +170,7 @@ export default function Navbar() {
           }`}>
           <div
             className={`${
-              show ? `px-14 lg:px-5 md:px-5 scale-x-5` : `px-14`
+              show ? `px-5 scale-x-5` : `px-5 md:px-14 lg:px-14`
             } grid grid-cols-2`}>
             <div className='logo'>
               <Link
@@ -212,7 +212,7 @@ export default function Navbar() {
             </div>
           </div>
           {showSearch && (
-            <form className={`${show ? "px-6" : "px-12"} mt-4`}>
+            <form className={`${show ? "px-6" : "px-6 md:px-14"} mt-4`}>
               <input
                 className='w-full px-5 py-3 rounded-xl'
                 type='text'
