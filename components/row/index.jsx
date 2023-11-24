@@ -72,7 +72,7 @@ function Row({ title, fetchUrl, isLargeRow, slide }) {
               {title}
             </h2>
             {!isLargeRow && (
-              <div className='pagination py-3'>
+              <div className='pagination py-3 '>
                 <button
                   className='text-white pagination-button text-2xl px-2'
                   onClick={() => handlePagination("left")}>
@@ -87,7 +87,7 @@ function Row({ title, fetchUrl, isLargeRow, slide }) {
             )}
           </div>
           <div
-            className={`flex overflow-hidden bg-dark`}
+            className={`flex md:overflow-hidden bg-dark`}
             style={{ overflowY: "hidden" }}
             ref={cardRef}>
             {movies.map(
