@@ -29,7 +29,6 @@ function Cast({ casts }) {
   };
 
   return (
-    
     <div className='cast-section my-20 mb-5 px-2 md:px-3 divide-y'>
       <div className='px-2 py-2 text-2xl '>Cast</div>
       <div className='flex items-center pt-8'>
@@ -39,9 +38,9 @@ function Cast({ casts }) {
           {"<"}
         </button>
         <div
-          className='cast-list flex overflow-x-scroll md:overflow-hidden gap-5'
+          className='cast-list flex md:overflow-hidden gap-5'
           ref={cardRef}
-          style={{ overflow: "hidden" }}>
+          style={{ overflowY: "hidden" }}>
           {casts.map((actor) =>
             actor ? (
               <div
