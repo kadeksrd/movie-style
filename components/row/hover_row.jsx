@@ -13,19 +13,18 @@ function Hover({ movie, hoveredMovie, isLargeRow }) {
             {isLargeRow
               ? movie.title || movie.name
               : movie.title || movie.name.length > 30
-              ? `${movie.title.substring(0, 20)}...`
+              ? `${movie.title?.substring(0, 20)}...`
               : movie.title || movie.name}
           </h3>
           <p
             className={`${
               isLargeRow ? "text-sm py-2" : "text-xs py-1"
             } text-center`}>
-            {movie.overview.length > (isLargeRow ? 50 : 30)
-              ? `${movie.overview.substring(0, isLargeRow ? 150 : 40)}...`
+            {movie.overview.length > (isLargeRow ? 50 : 40)
+              ? `${movie.overview?.substring(0, isLargeRow ? 150 : 40)}...`
               : movie.overview}
           </p>
 
-          {/* ${(clicked == movie) ? "movie" : "series"} */}
           <Link
             href={`/detail/${
               movie.media_type === "movie" || !movie.media_type ? "movie" : "tv"

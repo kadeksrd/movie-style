@@ -1,7 +1,8 @@
 "use client";
 import Link from "next/link";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import axios from "@api/axios";
+import Loading from "./loading";
 
 export default function Navbar() {
   const [show, handleShow] = useState(false);
@@ -9,6 +10,7 @@ export default function Navbar() {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const baseUrl = "https://image.tmdb.org/t/p/w200";
+  const [loading, setLoading] = useState(true);
 
   const search_api = `/search/multi?query=${searchTerm}&include_adult=false&language=en-US&page=1`;
 
@@ -45,6 +47,7 @@ export default function Navbar() {
       if (response.status === 200) {
         const data = response.data;
         setSearchResults(data.results);
+        setLoading(false);
       } else {
         console.error("Request failed");
       }
@@ -62,46 +65,49 @@ export default function Navbar() {
         style={{ overflowY: "auto", maxHeight: 1000 }}>
         <ul className=''>
           {searchResults.map((result) => (
-            <Link
+            <Suspense
               key={result.id}
-              href={`/detail/${
-                result.media_type === "movie" || !result.media_type
-                  ? "movie"
-                  : "tv"
-              }/${result.id}`}
-              target='_blank'>
-              <li className='hover:bg-gray-500/50 divide-y'>
-                <div className='hidden md:block lg:block md:flex lg:flex px-4'>
-                  <img
-                    src={`${baseUrl}${result.poster_path}`}
-                    alt=''
-                    width={140}
-                    height={180}
-                    className='rounded-xl py-2'
-                  />
-                  <div className='grid px-3'>
-                    <h4 className='text-xl'>
-                      {(result && result.name) || result.title}
-                    </h4>
-                    <p className=''>{result.overview}</p>
+              fallback={<Loading />}>
+              <Link
+                href={`/detail/${
+                  result.media_type === "movie" || !result.media_type
+                    ? "movie"
+                    : "tv"
+                }/${result.id}`}
+                target='_blank'>
+                <li className='hover:bg-gray-500/50 divide-y'>
+                  <div className='hidden md:block lg:block md:flex lg:flex px-4'>
+                    <img
+                      src={`${baseUrl}${result.poster_path}`}
+                      alt=''
+                      width={140}
+                      height={180}
+                      className='rounded-xl py-2'
+                    />
+                    <div className='grid px-3'>
+                      <h4 className='text-xl'>
+                        {(result && result.name) || result.title}
+                      </h4>
+                      <p className=''>{result.overview}</p>
+                    </div>
                   </div>
-                </div>
-                <div className='block md:hidden lg:hidden px-2 flex'>
-                  <img
-                    src={`${baseUrl}${result.poster_path}`}
-                    alt=''
-                    width={70}
-                    height={120}
-                    className='rounded-xl py-2'
-                  />
-                  <div className='grid px-3'>
-                    <h4 className='text-base flex items-center'>
-                      {(result && result.name) || result.title}
-                    </h4>
+                  <div className='block md:hidden lg:hidden px-2 flex'>
+                    <img
+                      src={`${baseUrl}${result.poster_path}`}
+                      alt=''
+                      width={70}
+                      height={120}
+                      className='rounded-xl py-2'
+                    />
+                    <div className='grid px-3'>
+                      <h4 className='text-base flex items-center'>
+                        {(result && result.name) || result.title}
+                      </h4>
+                    </div>
                   </div>
-                </div>
-              </li>
-            </Link>
+                </li>
+              </Link>
+            </Suspense>
           ))}
         </ul>
       </div>
@@ -116,46 +122,49 @@ export default function Navbar() {
         style={{ overflowY: "auto", maxHeight: 1000 }}>
         <ul>
           {searchResults.map((result) => (
-            <Link
+            <Suspense
               key={result.id}
-              href={`/detail/${
-                result.media_type === "movie" || !result.media_type
-                  ? "movie"
-                  : "tv"
-              }/${result.id}`}
-              target='_blank'>
-              <li className='hover:bg-gray-500/50 divide-y'>
-                <div className='hidden md:block px-4 flex'>
-                  <img
-                    src={`${baseUrl}${result.poster_path}`}
-                    alt=''
-                    width={140}
-                    height={180}
-                    className='rounded-xl py-2'
-                  />
-                  <div className='grid px-3'>
-                    <h4 className='text-xl'>
-                      {(result && result.name) || result.title}
-                    </h4>
-                    <p className=''>{result.overview}</p>
+              fallback={<Loading />}>
+              <Link
+                href={`/detail/${
+                  result.media_type === "movie" || !result.media_type
+                    ? "movie"
+                    : "tv"
+                }/${result.id}`}
+                target='_blank'>
+                <li className='hover:bg-gray-500/50 divide-y'>
+                  <div className='hidden md:block px-4 flex'>
+                    <img
+                      src={`${baseUrl}${result.poster_path}`}
+                      alt=''
+                      width={140}
+                      height={180}
+                      className='rounded-xl py-2'
+                    />
+                    <div className='grid px-3'>
+                      <h4 className='text-xl'>
+                        {(result && result.name) || result.title}
+                      </h4>
+                      <p className=''>{result.overview}</p>
+                    </div>
                   </div>
-                </div>
-                <div className='block md:hidden lg:hidden px-2 flex'>
-                  <img
-                    src={`${baseUrl}${result.poster_path}`}
-                    alt=''
-                    width={70}
-                    height={120}
-                    className='rounded-xl py-2'
-                  />
-                  <div className='grid px-3'>
-                    <h4 className='text-base flex items-center'>
-                      {(result && result.name) || result.title}
-                    </h4>
+                  <div className='block md:hidden lg:hidden px-2 flex'>
+                    <img
+                      src={`${baseUrl}${result.poster_path}`}
+                      alt=''
+                      width={70}
+                      height={120}
+                      className='rounded-xl py-2'
+                    />
+                    <div className='grid px-3'>
+                      <h4 className='text-base flex items-center'>
+                        {(result && result.name) || result.title}
+                      </h4>
+                    </div>
                   </div>
-                </div>
-              </li>
-            </Link>
+                </li>
+              </Link>
+            </Suspense>
           ))}
         </ul>
       </div>
